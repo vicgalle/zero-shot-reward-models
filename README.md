@@ -1,10 +1,10 @@
 # Zero-Shot Reward Models 🎯
 
-This repository showcases a generic technique to use an instruction-tuned LLM such as FLAN-T5 as a reward model for RLHF tasks. It relies in the [trlx](https://github.com/CarperAI/trlx) library for the PPO implementation.
+This repository showcases a generic technique to use an instruction-tuned LLM such as 🍮 Flan-T5 as a reward model for RLHF tasks. It relies in the [trlx](https://github.com/CarperAI/trlx) library for the PPO implementation.
 
 ## Explanation
 
-We can use an instruction-tuned LLM, such as FLAN-T5, as a reward model by framing the prompt as a yes/no question. Then, we obtain the logits corresponding to the tokens for "yes" and "no" and normalize them to obtain the probability of the answer being "yes". This probability is then used as the reward:
+We can use an instruction-tuned LLM, such as Flan-T5, as a reward model by framing the prompt as a yes/no question. Then, we obtain the logits corresponding to the tokens for "yes" and "no" and normalize them to obtain the probability of the answer being "yes". This probability is then used as the reward:
 
 ```python
 class ZeroShotRewardModel:
