@@ -1,6 +1,6 @@
-# Zero-Shot Reward Models
+# Zero-Shot Reward Models 🎯
 
-This repository showcases a generic technique to use an instruction-tuned LLM such as FLAN-T5 as a reward model for RLHF tasks. It relies in the trlx library
+This repository showcases a generic technique to use an instruction-tuned LLM such as FLAN-T5 as a reward model for RLHF tasks. It relies in the [trlx](https://github.com/CarperAI/trlx) library for the PPO implementation.
 
 ## Explanation
 
