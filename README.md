@@ -28,3 +28,21 @@ class ZeroShotRewardModel:
 ```
 python ppo_flan_sentiments.py
 ```
+
+At the beginning, the model to be optimized has these metrics:
+
+```
+                                                        Evaluation #0 reward/mean: 0.0588 metrics/prob_positive: 0.506                                                         
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━━━━━━━━━┓
+┃ prompt                         ┃ output                                                                                                             ┃ reward ┃ prob_positive ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━╇━━━━━━━━━━━━━━━┩
+│ Great artists, always suffered │ ).Most of this film arouses your interest only by accusing of!!ESP, the articles have gone on about Orson Welles   │ -3.34  │ 0.166         │
+│                                │ during the reigns of his Niven film, by other '                                                                    │        │               │
+├────────────────────────────────┼────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼────────┼───────────────┤
+│ What do you get                │  out of it all? Room context? Maya Fey plays a type of girl she sees brought back to life in spades. Why would     │ -4.87  │ 0.0129        │
+│                                │ anyone attempt to do something as insipid as "The Wicked                                                           │        │               │
+├────────────────────────────────┼────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼────────┼───────────────┤
+│ Should we take the             │  ages for dialogue when this game turns out to be so bad? Did Jim Simons really think this could make it? One of   │ -3.05  │ 0.195         │
+│                                │ the reasons I personally admire it is that it's dark and often weird                                               │        │               │
+└────────────────────────────────┴────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┴────────┴───────────────┘
+```
