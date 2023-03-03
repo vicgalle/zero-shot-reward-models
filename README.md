@@ -46,3 +46,26 @@ At the beginning, the model to be optimized has these metrics:
 │                                │ the reasons I personally admire it is that it's dark and often weird                                               │        │               │
 └────────────────────────────────┴────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┴────────┴───────────────┘
 ```
+
+After a few iterations, the model is able to generate much more positive reviews:
+
+```
+                                                         Evaluation #7 reward/mean: 3.95 metrics/prob_positive: 0.895                                                          
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━━━━━━━━━┓
+┃ prompt                         ┃ output                                                                                                             ┃ reward ┃ prob_positive ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━╇━━━━━━━━━━━━━━━┩
+│ Great artists, always suffered │  hardships when never producing or appearing. I enjoyed creating lines of characters as loved ones, lovedly human  │ 4.83   │ 0.983         │
+│                                │ ones and loved characters from the comic book world, everywhere. This film is richly handled and well              │        │               │
+├────────────────────────────────┼────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼────────┼───────────────┤
+│ What do you get                │ ? pie, the paparazzi, you don't get pie! It was quite funny though. I laughed a lot and enjoyed songs as well as   │ 4.78   │ 0.978         │
+│                                │ every aspect of the movie.<br /><                                                                                  │        │               │
+├────────────────────────────────┼────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┼────────┼───────────────┤
+│ Should we take the             │  test with a 10% chance of success, don't make it easy on yourself... thats all I do hereIt's all a bit long and   │ 3.7    │ 0.87          │
+│                                │ the characters are all quite strong.But if you                                                                     │        │               │
+└────────────────────────────────┴────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┴────────┴───────────────┘
+```
+
+These are the plots of the reward and the probability of the answer being "yes" (i.e. the probability of the review being positive) during training:
+
+![reward](imgs/reward_sentiment.png)
+![prob](imgs/prob_sentiment.png)
