@@ -1,4 +1,4 @@
-# Zero-Shot Reward Models 🎯
+# ZYN: Zero-Shot Reward Models with Yes-No Questions 🎯
 
 This repository showcases a generic technique to use an instruction-tuned LLM such as 🍮 Flan-T5 as a reward model for RLHF/RLAIF tasks. It relies in the [trlx](https://github.com/CarperAI/trlx) library for the PPO implementation.
 
@@ -97,5 +97,8 @@ While in the paper we focused on the Flan-T5 family of models, this example show
 
 ## Example 3: using an ensemble of prompts for more robustness 🤝
 
-See `ppo_flan_sentiments_robust.py` to perform ZYN RLAIF using an ensemble of 2 different prompts, as described in Eq. (4) of the paper. The reward is the average of the rewards of each prompt. The prompts are:
+See `ppo_flan_sentiments_robust.py` to perform ZYN RLAIF using an ensemble of 2 different prompts, as described in Eq. (4) of the paper. The reward is the average of the rewards of each prompt. The question prompts are:
+> Is this movie review from FilmAffinity?
+
+> Is this text too repetitive?
 
