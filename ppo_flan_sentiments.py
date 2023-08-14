@@ -42,14 +42,14 @@ class ZeroShotRewardModel:
             outputs = self.model.generate(
                 x, return_dict_in_generate=True, output_scores=True, max_new_tokens=1
             )
-            p_yes_exp = (
+            v_yes_exp = (
                 torch.exp(outputs.scores[0][:, self.yes_token_id]).cpu().numpy()[0]
             )
-            p_no_exp = (
+            v_no_exp = (
                 torch.exp(outputs.scores[0][:, self.no_token_id]).cpu().numpy()[0]
             )
             scores.append(
-                (p_yes_exp / (p_yes_exp + p_no_exp) - 0.5) * 10
+                (v_yes_exp / (v_yes_exp + v_no_exp) - 0.5) * 10
             )  # we do some rescaling to improve PPO. This is Eq. (3) in the paper
         return scores
 
@@ -66,13 +66,13 @@ class ZeroShotRewardModel:
             outputs = self.model.generate(
                 x, return_dict_in_generate=True, output_scores=True, max_new_tokens=1
             )
-            p_yes_exp = (
+            v_yes_exp = (
                 torch.exp(outputs.scores[0][:, self.yes_token_id]).cpu().numpy()[0]
             )
-            p_no_exp = (
+            v_no_exp = (
                 torch.exp(outputs.scores[0][:, self.no_token_id]).cpu().numpy()[0]
             )
-            scores.append(p_yes_exp / (p_yes_exp + p_no_exp))
+            scores.append(v_yes_exp / (v_yes_exp + v_no_exp))
         return {"prob_positive": scores}
 
 

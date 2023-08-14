@@ -64,16 +64,16 @@ class ZeroShotRewardModel:
                     output_scores=True,
                     max_new_tokens=1,
                 )
-                p_yes = (
+                v_yes_exp = (
                     torch.exp(outputs.scores[0][:, self.yes_token_id]).cpu().numpy()[0]
                 )
-                p_no = (
+                v_no_exp = (
                     torch.exp(outputs.scores[0][:, self.no_token_id]).cpu().numpy()[0]
                 )
                 if cl == "yes":
-                    score = p_yes / (p_yes + p_no)
+                    score = v_yes_exp / (v_yes_exp + v_no_exp)
                 else:
-                    score = p_no / (p_yes + p_no)
+                    score = v_no_exp / (v_yes_exp + v_no_exp)
                 score_prompt.append(score)
 
             scores.append(
@@ -103,16 +103,16 @@ class ZeroShotRewardModel:
                     output_scores=True,
                     max_new_tokens=1,
                 )
-                p_yes = (
+                v_yes_exp = (
                     torch.exp(outputs.scores[0][:, self.yes_token_id]).cpu().numpy()[0]
                 )
-                p_no = (
+                v_no_exp = (
                     torch.exp(outputs.scores[0][:, self.no_token_id]).cpu().numpy()[0]
                 )
                 if cl == "yes":
-                    score = p_yes / (p_yes + p_no)
+                    score = v_yes_exp / (v_yes_exp + v_no_exp)
                 else:
-                    score = p_no / (p_yes + p_no)
+                    score = v_no_exp / (v_yes_exp + v_no_exp)
                 score_prompt.append(score)
 
             scores.append(np.mean(score_prompt))

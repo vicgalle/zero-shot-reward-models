@@ -15,9 +15,9 @@ class ZeroShotRewardModel:
             input_text = f"Review: {sample}\n\n Is this movie review positive? Response:"
             x = self.tokenizer([input_text], return_tensors="pt").input_ids.to(self.device)
             outputs = self.model.generate(x, return_dict_in_generate=True, output_scores=True, max_new_tokens=1)
-            p_yes_exp = torch.exp(outputs.scores[0][:, yes_token_id]).cpu().numpy()[0]
-            p_no_exp = torch.exp(outputs.scores[0][:, no_token_id]).cpu().numpy()[0]
-            scores.append(p_yes_exp / (p_yes_exp + p_no_exp))
+            v_yes_exp = torch.exp(outputs.scores[0][:, yes_token_id]).cpu().numpy()[0]
+            v_no_exp = torch.exp(outputs.scores[0][:, no_token_id]).cpu().numpy()[0]
+            scores.append(v_yes_exp / (v_yes_exp + v_no_exp))
         return scores
 
 ```
