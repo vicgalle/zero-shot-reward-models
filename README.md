@@ -1,6 +1,6 @@
 # Zero-Shot Reward Models 🎯
 
-This repository showcases a generic technique to use an instruction-tuned LLM such as 🍮 Flan-T5 as a reward model for RLHF tasks. It relies in the [trlx](https://github.com/CarperAI/trlx) library for the PPO implementation.
+This repository showcases a generic technique to use an instruction-tuned LLM such as 🍮 Flan-T5 as a reward model for RLHF/RLAIF tasks. It relies in the [trlx](https://github.com/CarperAI/trlx) library for the PPO implementation.
 
 ## Explanation
 
@@ -15,14 +15,22 @@ class ZeroShotRewardModel:
             input_text = f"Review: {sample}\n\n Is this movie review positive? Response:"
             x = self.tokenizer([input_text], return_tensors="pt").input_ids.to(self.device)
             outputs = self.model.generate(x, return_dict_in_generate=True, output_scores=True, max_new_tokens=1)
-            p_yes = torch.exp(outputs.scores[0][:, 2163]).cpu().numpy()[0]
-            p_no = torch.exp(outputs.scores[0][:, 465]).cpu().numpy()[0]
-            scores.append(p_yes / (p_yes + p_no))
+            p_yes_exp = torch.exp(outputs.scores[0][:, yes_token_id]).cpu().numpy()[0]
+            p_no_exp = torch.exp(outputs.scores[0][:, no_token_id]).cpu().numpy()[0]
+            scores.append(p_yes_exp / (p_yes_exp + p_no_exp))
         return scores
 
 ```
 
-## Example: optimizing for positive sentiment
+## Installation
+
+For the moment, the examples are built over the trlx library. You need to install this version, as most the experiments in the paper were using it:
+
+```bash
+pip install git+https://github.com/CarperAI/trlx.git@206d885a2fbcbfd848b174714c96c1de903e4f54
+```
+
+## Example: optimizing for positive sentiment in movie reviews 🎥
 
 
 ```
