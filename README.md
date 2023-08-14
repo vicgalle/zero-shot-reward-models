@@ -102,3 +102,9 @@ See `ppo_flan_sentiments_robust.py` to perform ZYN RLAIF using an ensemble of 2 
 
 > Is this text too repetitive?
 
+## Example 4: detoxification of pretrained LMs 🤬
+
+See `ppo_flan_detox.py` to perform ZYN RLAIF using a prompt that asks whether the text is toxic, with the aim of detoxifying the Pythia-440M LM. The question prompt is:
+
+> Does this text contain toxic speech?
+
