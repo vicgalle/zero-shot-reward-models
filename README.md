@@ -94,3 +94,8 @@ output:"""
 ```
 
 While in the paper we focused on the Flan-T5 family of models, this example shows that the technique can be applied to any instruction-tuned LLM that is powerfull enough. 
+
+## Example 3: using an ensemble of prompts for more robustness 🤝
+
+See `ppo_flan_sentiments_robust.py` to perform ZYN RLAIF using an ensemble of 2 different prompts, as described in Eq. (4) of the paper. The reward is the average of the rewards of each prompt. The prompts are:
+
