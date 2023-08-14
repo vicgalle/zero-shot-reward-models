@@ -111,7 +111,7 @@ See `ppo_flan_detox.py` to perform ZYN RLAIF using a prompt that asks whether th
 
 ## Example 5: prompt personalization for text-to-image models 🎨
 
-ZYN can also be used to fuerther finetune a prompt generator for models such as Stable Diffusion or Midjourney, see the experiments from Section 4.1.5 in the paper:
+ZYN can also be used to further finetune a prompt generator for models such as Stable Diffusion or Midjourney, see the experiments from Section 4.1.5 in the paper:
 <img width="867" alt="Screenshot 2023-08-14 at 23 10 27" src="https://github.com/vicgalle/zero-shot-reward-models/assets/17426452/7d454cac-fc3d-4d8c-a0ca-6f711bdd9e96">
 
 - [ ] TODO: upload code for these examples
