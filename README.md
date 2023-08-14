@@ -75,8 +75,9 @@ After a few iterations, the model is able to generate much more positive reviews
 
 These are the plots of the reward and the probability of the answer being "yes" (i.e. the probability of the review being positive) during training:
 
-![reward](imgs/reward_sentiment.png)
-![prob](imgs/prob_sentiment.png)
+<img src="imgs/reward_sentiment.png" alt="drawing" width="500"/>
+<img src="imgs/prob_sentiment.png" alt="drawing" width="500"/>
+
 
 ## Example 2: optimizing for arbitrary attributes in movie reviews 🎭
 
@@ -107,4 +108,12 @@ See `ppo_flan_sentiments_robust.py` to perform ZYN RLAIF using an ensemble of 2 
 See `ppo_flan_detox.py` to perform ZYN RLAIF using a prompt that asks whether the text is toxic, with the aim of detoxifying the Pythia-440M LM. The question prompt is:
 
 > Does this text contain toxic speech?
+
+## Example 5: prompt personalization for text-to-image models 🎨
+
+ZYN can also be used to fuerther finetune a prompt generator for models such as Stable Diffusion or Midjourney, see the experiments from Section 4.1.5 in the paper:
+<img width="867" alt="Screenshot 2023-08-14 at 23 10 27" src="https://github.com/vicgalle/zero-shot-reward-models/assets/17426452/7d454cac-fc3d-4d8c-a0ca-6f711bdd9e96">
+
+- [ ] TODO: upload code for these examples
+
 
