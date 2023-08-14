@@ -2,17 +2,13 @@ import os
 import pathlib
 from typing import List
 
+import numpy as np
 import torch
+import trlx
 import yaml
 from datasets import load_dataset
-from transformers import pipeline
-
-import trlx
+from transformers import T5ForConditionalGeneration, T5Tokenizer, pipeline
 from trlx.data.configs import TRLConfig
-
-import numpy as np
-from transformers import T5ForConditionalGeneration, T5Tokenizer
-
 
 config_path = pathlib.Path(__file__).parent.joinpath(
     "./configs/ppo_flan_sentiments.yml"

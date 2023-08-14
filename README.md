@@ -30,7 +30,7 @@ For the moment, the examples are built over the trlx library. You need to instal
 pip install git+https://github.com/CarperAI/trlx.git@206d885a2fbcbfd848b174714c96c1de903e4f54
 ```
 
-## Example: optimizing for positive sentiment in movie reviews 🎥
+## Example 1: optimizing for positive sentiment in movie reviews 🎥
 
 
 ```
@@ -77,3 +77,20 @@ These are the plots of the reward and the probability of the answer being "yes" 
 
 ![reward](imgs/reward_sentiment.png)
 ![prob](imgs/prob_sentiment.png)
+
+## Example 2: optimizing for arbitrary attributes in movie reviews 🎭
+
+See `ppo_d5_movies.py` to perform RLAIF using a different reward model, in this case, the D5 model, which is finetuned from Flan-T5. The prompt is now:
+
+```python
+hypothesis = "This review is about a funny sci-fi"
+template = f"""Check whether the TEXT satisfies a PROPERTY. Respond with Yes or No. When uncertain, output No. 
+
+Now complete the following example -
+input: PROPERTY: {hypothesis}
+TEXT: {sample}
+output:"""
+
+```
+
+While in the paper we focused on the Flan-T5 family of models, this example shows that the technique can be applied to any instruction-tuned LLM that is powerfull enough. 
