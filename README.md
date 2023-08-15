@@ -2,6 +2,8 @@
 
 This repository showcases a generic technique to use an instruction-tuned LLM such as 🍮 Flan-T5 as a reward model for RLHF/RLAIF tasks. It relies in the [trlx](https://github.com/CarperAI/trlx) library for the PPO implementation.
 
+The paper can be found at https://arxiv.org/abs/2308.06385
+
 ## Explanation
 
 We can use an instruction-tuned LLM, such as Flan-T5, as a reward model by framing the prompt as a yes/no question. Then, we obtain the logits corresponding to the tokens for "yes" and "no" and normalize them to obtain the probability of the answer being "yes". This probability is then used as the reward:
@@ -115,5 +117,21 @@ ZYN can also be used to further finetune a prompt generator for models such as S
 <img width="867" alt="Screenshot 2023-08-14 at 23 10 27" src="https://github.com/vicgalle/zero-shot-reward-models/assets/17426452/7d454cac-fc3d-4d8c-a0ca-6f711bdd9e96">
 
 - [ ] TODO: upload code for these examples
+
+## Citation
+
+You can cite this work with
+
+```
+@misc{gallego2023zyn,
+      title={ZYN: Zero-Shot Reward Models with Yes-No Questions}, 
+      author={Victor Gallego},
+      year={2023},
+      eprint={2308.06385},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL}
+}
+```
+
 
 
